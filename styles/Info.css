@@ -1,0 +1,166 @@
+/* App.css */
+body {
+  background-color: #f7fafc; /* bg-gray-100 */
+  font-family: 'sans-serif';
+}
+
+/* Encabezado */
+header {
+  background-color: #059669; /* bg-green-600 */
+  color: white;
+  padding: 1.5rem 0; /* py-6 */
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: 700; /* font-bold */
+}
+
+/* Barra de navegación */
+.navbar {
+  background-color: #065F46; /* bg-green-800 */
+  color: white;
+  font-size: 1rem;
+  position: sticky;
+  top: 0;
+  padding: 1rem;
+  z-index: 10;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+}
+
+.navbar ul li {
+  margin-right: 1rem; /* space-x-4 */
+}
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #68d391; /* hover:text-green-300 */
+}
+
+/* Sección del clima */
+#weather-widget {
+  background-color: #c6f6d5;
+  border: 1px solid #c6f6d5;
+  margin: 2rem 10rem;
+  padding: 2rem;
+  border-radius: 10px;
+
+}
+.infoclima{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content:space-between;
+    
+}
+
+#weather-widget h2 {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700; /* font-bold */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+#weather-widget p {
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+#weather-widget .font-bold {
+  font-weight: 700; /* font-bold */
+}
+
+/* Tipos de Suelo */
+#tipos-de-suelo {
+  margin-bottom: 3rem; /* mb-12 */
+}
+
+#tipos-de-suelo h2 {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700; /* font-bold */
+  margin-bottom: 1.5rem; /* mb-6 */
+  text-align: center;
+}
+
+.titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.ca {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.ca:hover {
+  transform: translateY(-5px);
+}
+
+.ca img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.ca-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.ca-content h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.ca-content p {
+  font-size: 0.95rem;
+  color: #555;
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.ca-content button {
+  align-self: flex-start;
+  background-color: #10B981;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ca-content button:hover {
+  background-color: #16a34a;
+}
+
+

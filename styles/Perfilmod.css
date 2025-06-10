@@ -1,0 +1,263 @@
+/* src/styles/Perfilmod.css */
+
+.perfilmod-page-container {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 80px; /* Ajusta a la altura de tu Nav + un poco de margen */
+  padding-bottom: 3rem;
+  display: flex;
+  align-items: flex-start; /* Alinear arriba para que se vea el formulario si es largo */
+  justify-content: center;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevenir scroll horizontal innecesario */
+}
+
+.perfilmod-video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.perfilmod-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 25, 20, 0.6); /* Overlay un poco verdoso oscuro */
+  z-index: -1;
+}
+
+.perfilmod-content-box {
+  width: 90%;
+  max-width: 650px; /* Ligeramente más estrecho para mejor lectura en una sola columna */
+  margin: 2rem auto;
+  background-color: rgba(255, 255, 255, 0.95); /* Casi opaco para excelente legibilidad */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  color: #212529; /* Texto oscuro principal */
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.perfilmod-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: #087f5b; /* Verde esmeralda */
+  font-weight: 600;
+}
+
+.perfilmod-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* Espacio entre elementos/grupos del formulario */
+}
+
+.perfilmod-avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.5rem; /* Menos espacio si el botón está cerca */
+}
+
+.perfilmod-avatar-preview {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+  border: 3px solid #087f5b;
+  background-color: #e9ecef; /* Color de fondo si no hay imagen */
+}
+
+.perfilmod-avatar-upload-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #6c757d;
+  color: white;
+  padding: 0.5rem 0.9rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background-color 0.2s ease;
+}
+.perfilmod-avatar-upload-label:hover {
+  background-color: #545b62;
+}
+.perfilmod-avatar-upload-label i {
+  font-size: 0.9em;
+}
+.perfilmod-avatar-upload-input {
+  display: none;
+}
+
+.perfilmod-form-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Por defecto una columna */
+  gap: 1.25rem;
+}
+
+/* Dos columnas para el grid en pantallas más grandes */
+@media (min-width: 640px) {
+  .perfilmod-form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.perfilmod-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.perfilmod-form-group label {
+  font-weight: 500; /* Ligeramente menos grueso que semibold */
+  color: #343a40;
+  font-size: 0.9rem;
+}
+
+.perfilmod-form-group input[type="text"],
+.perfilmod-form-group input[type="email"],
+.perfilmod-form-group input[type="tel"],
+.perfilmod-form-group input[type="date"],
+.perfilmod-form-group textarea {
+  padding: 0.7rem 0.9rem; /* Buen padding */
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  background-color: #fff;
+  color: #212529;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.perfilmod-form-group input::placeholder,
+.perfilmod-form-group textarea::placeholder {
+  color: #adb5bd;
+}
+
+.perfilmod-form-group input:focus,
+.perfilmod-form-group textarea:focus {
+  outline: none;
+  border-color: #2a9d8f; /* Un verde más suave para el foco */
+  box-shadow: 0 0 0 2px rgba(42, 157, 143, 0.25);
+}
+
+.perfilmod-form-group textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.perfilmod-submit-btn {
+  background-color: #2a9d8f; /* Verde más suave y moderno */
+  border: none;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  margin-top: 0.5rem; /* Menos espacio si el gap del form ya es suficiente */
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.perfilmod-submit-btn:hover {
+  background-color: #238478; /* Más oscuro al pasar */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+}
+.perfilmod-submit-btn:active {
+  transform: translateY(0px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.perfilmod-submit-btn i {
+  font-size: 0.95em;
+}
+
+/* Media queries para responsividad de PerfilMod */
+@media (max-width: 767px) {
+  .perfilmod-content-box {
+    padding: 1.5rem;
+    margin-top: 1rem; /* Menos margen en móvil */
+  }
+  .perfilmod-title {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .perfilmod-form-grid { /* Forzar una columna en móviles muy pequeños si auto-fit no es suficiente */
+    grid-template-columns: 1fr;
+  }
+  .perfilmod-content-box {
+    width: 95%;
+    padding: 1.25rem;
+  }
+  .perfilmod-title {
+    font-size: 1.4rem;
+  }
+  .perfilmod-submit-btn {
+    font-size: 0.95rem;
+    padding: 0.7rem 1rem;
+  }
+}
+
+
+
+/* --- ESTILOS PARA LA ZONA DE PELIGRO --- */
+
+.perfilmod-danger-zone {
+  margin-top: 3rem; /* Espacio considerable arriba */
+  border: 2px solid #e03131; /* Borde rojo */
+  border-radius: 8px;
+  background-color: #fff5f5; /* Fondo rojo muy pálido */
+}
+
+.danger-zone-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #c92a2a; /* Rojo oscuro */
+  padding: 1rem 1.5rem;
+  border-bottom: 2px solid #e03131;
+}
+
+.danger-zone-content {
+  padding: 1.5rem;
+}
+
+.danger-zone-content p {
+  font-size: 0.9rem;
+  color: #590000;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.perfilmod-delete-account-btn {
+  background-color: #c92a2a; /* Rojo oscuro */
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  width: 100%;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.perfilmod-delete-account-btn:hover {
+  background-color: #a61e1e; /* Rojo más oscuro al pasar */
+}

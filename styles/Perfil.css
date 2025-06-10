@@ -1,0 +1,736 @@
+/* src/styles/Perfil.css */
+
+/* --- Estilos Generales de la Página de Perfil --- */
+.perfil-page-container {
+  padding-top: 70px; /* Ajusta este valor a la altura de tu Nav fija. Ej: Si Nav mide 60px, pon 60px o un poco más */
+  background-color: #f4f6f8; /* Un fondo ligeramente diferente al de información */
+  min-height: calc(100vh - 70px); /* Asegura que ocupe al menos la pantalla restante */
+  box-sizing: border-box;
+}
+
+/* --- Sección Principal del Perfil de Usuario --- */
+.perfil-usuario {
+  background: linear-gradient(to bottom, #2a9d8f, #e9f5db 450px); /* Gradiente más suave y extendido */
+  color: #333;
+  width: 100%;
+  padding-bottom: 2.5rem; /* Espacio al final */
+}
+
+.contenedor-perfil {
+  max-width: 1100px; /* Un poco más de ancho para el contenido del perfil */
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%; /* Ocupa el 90% del ancho disponible */
+}
+
+.portada-perfil {
+  display: block;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 300px; /* Altura de la portada ajustada */
+  margin-bottom: 90px; /* Espacio para el avatar que sobresale */
+  border-radius: 0 0 16px 16px; /* Bordes redondeados más suaves */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.sombra-portada {
+  position: absolute;
+  display: block;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, transparent 80%); /* Sombra más intensa abajo */
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit; /* Hereda el border-radius de la portada */
+  z-index: 1;
+}
+
+.avatar-perfil-container {
+  position: absolute;
+  bottom: -75px; /* (altura_avatar / 2) para que sobresalga la mitad */
+  left: 2.5rem; /* Ajusta según preferencia */
+  z-index: 3;
+  border-radius: 50%;
+  border: 5px solid #fff; /* Borde blanco */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22); /* Sombra más pronunciada */
+  width: 150px; 
+  height: 150px;
+  overflow: hidden;
+  background-color: #e0e0e0; /* Color de fondo por si la imagen no carga */
+}
+
+.avatar-imagen {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.cambiar-foto-btn {
+  position: absolute;
+  width: 100%;
+  height: 45%; /* Área de hover para el botón */
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 0.85rem;
+}
+.avatar-perfil-container:hover .cambiar-foto-btn {
+  opacity: 1;
+}
+.cambiar-foto-btn i {
+  margin-bottom: 0.3rem;
+  font-size: 1.6rem;
+}
+
+.datos-perfil {
+  position: absolute;
+  bottom: 1rem; /* Más pegado al borde inferior de la portada */
+  left: calc(2.5rem + 150px + 1.5rem); /* Espacio del avatar + su borde + margen */
+  right: 1.5rem;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.titulo-usuario {
+  font-size: 1.9rem; 
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  line-height: 1.2;
+}
+
+.bio-usuario { /* Estilo para la bio en la portada y en la tarjeta de resumen */
+  font-size: 0.9rem; 
+  margin-bottom: 0.75rem;
+  color: #f0f0f0; /* Blanco un poco más suave */
+  line-height: 1.45;
+  /* max-width: 90%;  // Se puede quitar si el contenedor .datos-perfil ya limita el ancho */
+}
+
+.lista-tags-perfil {
+  list-style: none;
+  margin: 0.75rem 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.6rem; /* Espacio entre tags */
+}
+.lista-tags-perfil li {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  padding: 0.3rem 0.7rem;
+  border-radius: 16px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.opciones-perfil-portada {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column; /* Botones en columna en pantallas pequeñas */
+  gap: 0.5rem;
+  z-index: 3;
+}
+
+.btn-opcion-portada {
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 6px;
+  color: #333;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  text-decoration: none; /* Para el Link */
+}
+.btn-opcion-portada:hover {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+  transform: translateY(-1px);
+}
+.btn-opcion-portada.btn-modificar-datos {
+  background-color: #e9c46a; 
+  color: #3a2e00;
+}
+.btn-opcion-portada.btn-modificar-datos:hover {
+  background-color: #f4d079;
+}
+.btn-opcion-portada i {
+  font-size: 0.9em; /* Íconos ligeramente más pequeños */
+}
+
+/* --- Sub-navegación del Perfil --- */
+.menu-acciones-perfil {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  margin-top: -35px; /* Solapamiento con la portada */
+  position: relative;
+  z-index: 4;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  width: auto; /* Ancho automático basado en contenido */
+  min-width: 300px; /* Ancho mínimo para que no se vea mal con pocos ítems */
+  max-width: 90%; /* Para que no se desborde en pantallas pequeñas */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.5rem;
+}
+.menu-acciones-perfil ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap; /* Permitir que los elementos pasen a la siguiente línea */
+  justify-content: center; /* Centrar los ítems si hay varias líneas */
+  gap: 1rem 1.5rem; /* Espacio vertical y horizontal */
+}
+.menu-acciones-perfil ul li a {
+  text-decoration: none;
+  color: #495057;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.2rem;
+  transition: color 0.2s ease;
+  border-bottom: 2px solid transparent;
+}
+.menu-acciones-perfil ul li a:hover {
+  color: #087f5b;
+  border-bottom-color: #087f5b;
+}
+.menu-acciones-perfil ul li a i {
+  font-size: 1.1em; /* Íconos un poco más grandes */
+  color: #6c757d; /* Color de ícono base */
+  transition: color 0.2s ease;
+}
+.menu-acciones-perfil ul li a:hover i {
+  color: #087f5b;
+}
+
+/* --- Contenido Adicional del Perfil (Tarjeta Resumen) --- */
+.perfil-contenido-adicional {
+  padding: 0 1rem 2.5rem 1rem;
+  max-width: 750px; 
+  margin: 0 auto;
+}
+
+.card-usuario-resumen {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+}
+
+.card-usuario-resumen-header {
+  background: linear-gradient(135deg, #4a90e2, #2a9d8f); /* Nuevo gradiente más suave */
+  padding: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  color: #fff;
+}
+
+.card-usuario-resumen-avatar {
+  width: 75px; /* Un poco más grande */
+  height: 75px;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.8);
+  object-fit: cover;
+}
+
+.card-usuario-resumen-nombre {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+}
+.card-usuario-resumen-ubicacion {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  margin: 0.2rem 0 0 0;
+}
+.card-usuario-resumen-ubicacion i {
+  margin-right: 0.4rem;
+}
+
+.card-usuario-resumen-body {
+  padding: 1.75rem;
+}
+
+.card-usuario-resumen-declaracion {
+  font-size: 1rem; /* Más legible */
+  color: #343a40;
+  margin-bottom: 1.75rem;
+  font-style: normal; /* Quitar itálica si no es una cita directa */
+  text-align: left; /* Alinear a la izquierda */
+  padding: 0;
+  border-left: 3px solid #2a9d8f; /* Acento lateral */
+  padding-left: 1rem;
+}
+
+.card-usuario-resumen-stats {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-bottom: 1.75rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid #e9ecef;
+  border-bottom: 1px solid #e9ecef;
+  background-color: #f8f9fa; /* Fondo sutil para la sección de estadísticas */
+}
+.card-usuario-resumen-stats div {
+  flex: 1; /* Para que ocupen el mismo espacio */
+}
+.card-usuario-resumen-stats div span:first-child {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 700; /* Más grueso */
+  color: #087f5b;
+  margin-bottom: 0.1rem;
+}
+.card-usuario-resumen-stats div span:last-child {
+  font-size: 0.75rem; /* Más pequeño */
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.card-usuario-resumen-social {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.card-usuario-resumen-social a {
+  color: #868e96; /* Color de ícono más suave */
+  font-size: 1.4rem; 
+  margin: 0 0.85rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.card-usuario-resumen-social a:hover {
+  color: #087f5b;
+  transform: scale(1.1);
+}
+
+.card-usuario-resumen-footer {
+  padding: 1.25rem 1.75rem;
+  background-color: #f1f3f5; /* Gris más claro */
+  text-align: right; /* Botón a la derecha */
+}
+
+.btn-ver-perfil-completo {
+  text-decoration: none;
+  color: #fff;
+  background-color: #087f5b;
+  padding: 0.6rem 1.2rem; /* Botón un poco más pequeño */
+  border-radius: 6px; 
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.btn-ver-perfil-completo:hover {
+  background-color: #076c4f;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+/* --- Sección "Mis Redes" (de la aplicación) --- */
+.mis-redes-sitio {
+  text-align: center;
+  padding: 1.5rem 1rem; /* Menos padding */
+  background-color: #dee2e6; /* Color de fondo diferente */
+  margin-top: 2.5rem;
+  border-radius: 8px; /* Añadido */
+}
+.mis-redes-sitio p {
+  font-size: 0.85rem;
+  margin-bottom: 0.6rem;
+  color: #495057;
+  font-weight: 500;
+  text-transform: uppercase; /* Mayúsculas para diferenciar */
+  letter-spacing: 0.5px;
+}
+.mis-redes-sitio div a {
+  margin: 0 0.6rem;
+  font-size: 1.4rem;
+  color: #495057;
+  transition: color 0.2s ease;
+}
+.mis-redes-sitio div a:hover {
+  color: #087f5b;
+}
+
+/* --- Media Queries para Responsividad --- */
+@media (max-width: 992px) { /* Para tabletas */
+  .datos-perfil {
+    left: 2rem; /* Mover los datos más a la izquierda si el avatar se mueve o se reduce */
+    right: 1rem;
+    bottom: 1rem;
+    /* Considerar reducir el tamaño de fuente del título y bio aquí */
+  }
+  .titulo-usuario { font-size: 1.7rem; }
+  .bio-usuario { font-size: 0.85rem; }
+}
+
+@media (max-width: 767px) { /* Para móviles */
+  .portada-perfil {
+    height: 220px; 
+    margin-bottom: 70px; 
+  }
+  .avatar-perfil-container {
+    width: 120px;
+    height: 120px;
+    bottom: -60px; 
+    left: 50%; /* Centrar avatar */
+    transform: translateX(-50%); /* Asegurar centrado exacto */
+    border-width: 4px;
+  }
+  .datos-perfil {
+    position: static; /* Cambia a flujo normal debajo del avatar */
+    text-align: center;
+    padding: 70px 1rem 1rem 1rem; /* Padding arriba para el avatar */
+    color: #333; 
+    text-shadow: none; 
+    width: 100%;
+    max-width: 100%;
+    margin-top: 1rem; /* Espacio después del avatar */
+  }
+  .titulo-usuario { color: #111; font-size: 1.6rem;}
+  .bio-usuario { color: #444; max-width: 90%; margin-left:auto; margin-right:auto;}
+  .lista-tags-perfil { justify-content: center; } /* Centrar tags */
+  .lista-tags-perfil li { background-color: rgba(0,0,0,0.05); color: #555; border-color: rgba(0,0,0,0.1); }
+
+  .opciones-perfil-portada {
+    top: 0.5rem;
+    right: 0.5rem;
+    flex-direction: row; /* Mantener en fila pero podrían necesitar ser más pequeños */
+  }
+  .btn-opcion-portada {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+  }
+  .btn-opcion-portada i { font-size: 0.8em; }
+
+  .menu-acciones-perfil {
+    margin-top: 1.5rem; /* Más espacio después de los datos del perfil en móvil */
+    width: 90%;
+  }
+  .menu-acciones-perfil ul {
+    gap: 0.5rem 1rem; /* Menos gap */
+    font-size: 0.85rem;
+  }
+  .card-usuario-resumen-header { flex-direction: column; text-align: center; gap: 0.5rem; }
+  .card-usuario-resumen-avatar { width: 90px; height: 90px; margin-bottom: 0.5rem; }
+  .card-usuario-resumen-stats { flex-direction: column; gap: 1rem; }
+}
+
+@media (max-width: 480px) { /* Móviles más pequeños */
+  .portada-perfil { height: 180px; margin-bottom: 55px; }
+  .avatar-perfil-container { width: 90px; height: 90px; bottom: -45px; border-width: 3px;}
+  .datos-perfil { padding-top: 50px; }
+  .titulo-usuario { font-size: 1.4rem;}
+  .bio-usuario { font-size: 0.8rem; }
+  .menu-acciones-perfil ul { flex-direction: column; gap: 0.3rem; }
+  .menu-acciones-perfil ul li a { padding: 0.6rem 1rem; justify-content: center; }
+  .card-usuario-resumen-declaracion { font-size: 0.9rem; }
+  .card-usuario-resumen-stats div span:first-child { font-size: 1.4rem; }
+  .opciones-perfil-portada { width: 100%; justify-content: space-around; left:0; right:0; padding: 0 0.5rem; box-sizing: border-box; }
+}
+
+
+
+/* --- ESTILOS PARA LA SECCIÓN DE HISTORIAL --- */
+
+.historial-container {
+  max-width: 900px;
+  margin: 0 auto 3rem auto; /* Margen arriba(0), centrado, abajo(3rem) */
+  padding: 0 1rem;
+}
+
+.historial-titulo-principal {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #087f5b; /* Verde de la paleta */
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.historial-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Espacio entre cada item del historial */
+}
+
+.historial-item {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+  border: 1px solid #e9ecef;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  overflow: hidden; /* Para que el borde coloreado se vea bien */
+}
+
+.historial-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.historial-item-fecha {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  background-color: #f8f9fa; /* Fondo gris claro para la fecha */
+  color: #495057; /* Gris oscuro para el texto */
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.historial-item-fecha i {
+  color: #087f5b; /* Ícono de calendario en verde */
+}
+
+.historial-item-cuerpo {
+  padding: 1.25rem;
+  display: grid;
+  grid-template-columns: 1fr; /* Por defecto una columna en móvil */
+  gap: 1rem;
+}
+
+/* En pantallas más grandes, dos columnas para consulta y resultado */
+@media (min-width: 640px) {
+  .historial-item-cuerpo {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+.historial-item-consulta,
+.historial-item-resultado {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.historial-item-consulta strong,
+.historial-item-resultado strong {
+  font-size: 0.9rem;
+  color: #343a40;
+  font-weight: 600;
+}
+
+.historial-item-consulta span,
+.historial-item-resultado span {
+  font-size: 0.95rem;
+  color: #6c757d;
+}
+
+.historial-item-cultivos {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.historial-item-cultivos li {
+  background-color: #e6f9f3; /* Fondo verde muy claro para los tags de cultivo */
+  color: #076c4f;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.historial-vacio {
+  text-align: center;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  color: #6c757d;
+  font-style: italic;
+}
+
+
+/* --- ESTILOS PARA LA SECCIÓN DE HISTORIAL --- */
+
+.historial-container {
+  max-width: 900px;
+  margin: 1rem auto 3rem auto; /* Margen arriba, centrado, abajo */
+  padding: 0 1rem;
+}
+
+.historial-titulo-principal {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #087f5b; /* Verde de la paleta */
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.historial-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Espacio entre cada item del historial */
+}
+
+.historial-item {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+  border: 1px solid #e9ecef;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  overflow: hidden; 
+}
+
+.historial-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.historial-item-fecha {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  background-color: #f8f9fa; /* Fondo gris claro para la fecha */
+  color: #495057; /* Gris oscuro para el texto */
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.historial-item-fecha i {
+  color: #087f5b; /* Ícono de calendario en verde */
+}
+
+.historial-item-cuerpo {
+  padding: 1.25rem;
+  display: grid;
+  grid-template-columns: 1fr; /* Por defecto una columna en móvil */
+  gap: 1rem;
+}
+
+/* En pantallas más grandes, dos columnas para consulta y resultado */
+@media (min-width: 640px) {
+  .historial-item-cuerpo {
+    grid-template-columns: 1fr 1.5fr; /* La columna de resultado un poco más ancha */
+    gap: 2rem;
+  }
+}
+
+.historial-item-consulta,
+.historial-item-resultado {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.historial-item-consulta strong,
+.historial-item-resultado strong {
+  font-size: 0.9rem;
+  color: #343a40;
+  font-weight: 600;
+  border-bottom: 1px solid #f1f3f5;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
+}
+
+.historial-item-consulta span,
+.historial-item-resultado span {
+  font-size: 0.95rem;
+  color: #6c757d;
+}
+
+.historial-item-cultivos {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.historial-item-cultivos li {
+  background-color: #e6f9f3; /* Fondo verde muy claro para los tags de cultivo */
+  color: #076c4f;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.historial-vacio {
+  text-align: center;
+  padding: 2.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  color: #6c757d;
+  font-style: italic;
+  border: 1px dashed #ced4da;
+}
+
+
+
+/* --- ESTILOS PARA EL BOTÓN DE ELIMINAR HISTORIAL --- */
+
+.historial-item {
+  position: relative; /* Necesario para posicionar el botón de eliminar */
+  /* ... tus otros estilos para .historial-item ... */
+}
+
+.historial-item-delete-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background-color: transparent;
+  border: none;
+  color: #adb5bd; /* Un gris suave por defecto */
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.historial-item-delete-btn:hover {
+  background-color: #ffe3e3; /* Un fondo rojo muy pálido al pasar el cursor */
+  color: #c92a2a; /* Rojo oscuro para el ícono */
+  transform: scale(1.1);
+}

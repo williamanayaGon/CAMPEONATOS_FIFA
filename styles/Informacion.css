@@ -1,0 +1,414 @@
+/* src/styles/Informacion.css */
+
+/* --- Estilos Generales de la Página de Información --- */
+body.modal-open {
+  overflow: hidden; /* Evita el scroll del fondo cuando un modal está abierto */
+}
+
+.info-page-container {
+  padding: 2rem 1.5rem 3rem 1.5rem; /* Espaciado general, más abajo */
+  background-color: #f8f9fa; /* Fondo gris muy claro y neutro */
+  color: #343a40; /* Color de texto principal oscuro */
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.info-page-main-title {
+  font-size: 2.2rem; /* Ajustado para móviles */
+  font-weight: 700;
+  text-align: center;
+  color: #087f5b; /* Un verde esmeralda más vibrante */
+  margin-bottom: 2.5rem; 
+  letter-spacing: -0.5px;
+}
+
+/* --- Grid de Tarjetas Resumen --- */
+.info-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Mantenemos buena responsividad */
+  gap: 2rem; 
+}
+
+.info-card-summary {
+  background-color: #ffffff;
+  border-radius: 10px; /* Ligeramente menos redondeado que antes para un look más sobrio */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06); /* Sombra más sutil */
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; 
+  border-left: 5px solid transparent; /* Borde de acento, color se define por clase específica */
+}
+
+.info-card-summary:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Clases de color para el borde izquierdo de las tarjetas resumen */
+/* Usando colores un poco más suaves o corporativos si es necesario */
+.info-card-summary.card-border-red { border-left-color: #d9480f; } /* Rojo-naranja */
+.info-card-summary.card-border-blue { border-left-color: #1c7ed6; } /* Azul */
+.info-card-summary.card-border-green { border-left-color: #2f9e44; } /* Verde */
+.info-card-summary.card-border-yellow { border-left-color: #f59f00; } /* Amarillo-naranja */
+.info-card-summary.card-border-brown { border-left-color: #795548; } /* Marrón */
+.info-card-summary.card-border-lime { border-left-color: #74b816; } /* Verde lima */
+.info-card-summary.card-border-sky { border-left-color: #3bc9db; } /* Cian */
+.info-card-summary.card-border-teal { border-left-color: #087f5b; } /* Verde esmeralda */
+
+.info-card-summary-image-wrapper {
+  width: 100%;
+  height: 170px; /* Un poco menos de altura para la imagen */
+  overflow: hidden;
+}
+.info-card-summary-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.info-card-summary:hover .info-card-summary-image {
+  transform: scale(1.03);
+}
+
+.info-card-summary-content {
+  padding: 1.25rem; /* Ajuste de padding */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.info-card-summary-title {
+  font-size: 1.2rem; 
+  font-weight: 600;
+  color: #212529; 
+  margin-bottom: 0.5rem; 
+}
+
+.info-card-summary-description {
+  font-size: 0.9rem; 
+  color: #495057; /* Un gris un poco más oscuro para mejor contraste */
+  margin-bottom: 1rem; 
+  flex-grow: 1;
+  line-height: 1.5;
+}
+
+.info-card-summary-cta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #087f5b; 
+  text-align: right;
+  margin-top: auto; 
+  display: inline-flex; /* Para alinear ícono */
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.25rem 0; /* Pequeño padding para el área de texto del CTA */
+}
+.info-card-summary-cta .cta-icon {
+  margin-left: 0.4rem;
+  font-size: 0.8em; /* Ícono un poco más pequeño */
+  transition: transform 0.2s ease-in-out;
+}
+.info-card-summary:hover .info-card-summary-cta .cta-icon {
+  transform: translateX(4px);
+}
+
+
+/* --- Modal de Información Detallada --- */
+.info-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(20, 20, 20, 0.8); /* Overlay más oscuro */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 1rem; /* Espacio por si el modal es muy grande en pantallas pequeñas */
+  box-sizing: border-box;
+  opacity: 0; 
+  animation: fadeInOverlay 0.25s ease-out forwards;
+}
+
+.info-modal-content {
+  background-color: #ffffff;
+  padding: 1.5rem; /* Padding base */
+  border-radius: 8px; /* Bordes ligeramente menos redondeados */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  width: 90%;
+  max-width: 680px; /* Un poco menos de ancho máximo */
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(20px) scale(0.98); /* Inicia un poco abajo y escalado */
+  opacity: 0;
+  animation: slideUpModal 0.3s 0.1s ease-out forwards;
+}
+
+.info-modal-close-button {
+  position: absolute;
+  top: 0.5rem; 
+  right: 0.5rem; 
+  background: transparent; /* Sin fondo */
+  border: none;
+  font-size: 1.8rem; /* Ícono más grande */
+  color: #adb5bd; /* Gris claro */
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.info-modal-close-button:hover {
+  color: #343a40; /* Gris oscuro al pasar */
+  background-color: #f1f3f5; /* Fondo muy sutil al pasar */
+}
+.info-modal-close-button i { 
+  display: block; 
+}
+
+.info-modal-image {
+  width: 100%;
+  height: auto; 
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: 6px; /* Bordes más suaves */
+  margin-bottom: 1.25rem;
+}
+
+.info-modal-title {
+  font-size: 1.8rem; 
+  font-weight: 700;
+  color: #087f5b; 
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e9ecef; /* Separador más sutil */
+}
+
+.info-modal-body {
+  font-size: 0.95rem; /* Ligeramente más pequeño para más texto */
+  line-height: 1.65;
+  color: #495057; 
+}
+
+.info-modal-body p {
+  margin-bottom: 0.85rem;
+}
+
+.info-modal-body h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #2c6e49; 
+  margin-top: 1.25rem;
+  margin-bottom: 0.6rem;
+}
+
+.info-modal-body ul {
+  list-style: none; 
+  padding-left: 0.25rem; /* Pequeño padding si se usa pseudo-elemento */
+  margin-top: 0.5rem;
+}
+
+.info-modal-body ul li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.75rem; 
+  position: relative;
+  font-size: 0.9rem; /* Texto de lista un poco más pequeño */
+}
+
+.info-modal-body ul li::before {
+  content: '🌱'; /* Emoji de planta como viñeta */
+  color: #2a9d8f; 
+  position: absolute;
+  left: 0;
+  top: 1px; /* Ajuste vertical del emoji */
+  font-size: 0.9em;
+}
+
+.info-modal-body strong {
+  color: #212529; 
+  font-weight: 600;
+}
+
+/* Animaciones */
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUpModal {
+  from { opacity: 0; transform: translateY(30px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* --- Sección de Galería --- */
+.gallery-section-custom {
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  background-color: #e6f9f3; /* Un verde muy, muy pálido, casi blanco */
+  margin-top: 3rem;
+  border-radius: 10px;
+}
+
+.gallery-section-title {
+  font-size: 1.75rem; 
+  margin-bottom: 2rem; 
+  color: #087f5b;
+  font-weight: 600;
+}
+
+.gallery-container-custom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem; 
+}
+
+.gallery-item-custom {
+  width: 200px; /* Mantenemos un tamaño fijo para consistencia */
+  height: 150px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.gallery-item-custom img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.gallery-item-custom:hover {
+  transform: scale(1.05); /* Efecto hover más sutil */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* Overlay para la Galería de Imágenes */
+.gallery-image-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.88); /* Overlay un poco más opaco */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2100; 
+  padding: 1rem;
+  box-sizing: border-box;
+  opacity: 0;
+  animation: fadeInOverlay 0.25s forwards;
+}
+
+.gallery-image-overlay-content { 
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.95); /* Para animación de entrada */
+  opacity: 0;
+  animation: scaleUpModal 0.3s 0.1s forwards; /* Reutilizar animación del modal de info */
+}
+
+.gallery-image-overlay img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 6px; /* Bordes más suaves */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  object-fit: contain;
+}
+
+.gallery-modal-close-button {
+  position: absolute;
+  top: -15px; /* Posicionamiento fuera de la imagen para mejor visibilidad */
+  right: -15px;
+  background: #fff;
+  border: none;
+  font-size: 1rem; 
+  color: #333;
+  cursor: pointer;
+  width: 36px; /* Botón un poco más grande */
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  z-index: 2101;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+.gallery-modal-close-button:hover {
+  background-color: #e9ecef;
+  color: #000;
+  transform: scale(1.1);
+}
+
+/* Media queries para responsividad general de la página de información */
+@media (max-width: 768px) {
+  .info-page-main-title {
+    font-size: 1.8rem; /* Más pequeño en tabletas y móviles */
+    margin-bottom: 2rem;
+  }
+  .info-cards-grid {
+    gap: 1.5rem; /* Menos espacio entre tarjetas */
+  }
+  .info-modal-content {
+    padding: 1.5rem; /* Menos padding en el modal */
+    max-height: 85vh; /* Permitir un poco más de altura en móvil */
+  }
+  .info-modal-title {
+    font-size: 1.5rem;
+  }
+  .info-modal-body {
+    font-size: 0.9rem;
+  }
+  .gallery-section-title {
+    font-size: 1.5rem;
+  }
+  .gallery-item-custom {
+    width: calc(50% - 0.75rem); /* Dos columnas en la galería en móviles */
+    height: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-page-container {
+    padding: 1.5rem 1rem;
+  }
+  .info-page-main-title {
+    font-size: 1.6rem;
+  }
+  .info-cards-grid {
+    grid-template-columns: 1fr; /* Una columna en móviles muy pequeños */
+    gap: 1rem;
+  }
+  .info-card-summary-content {
+    padding: 1rem;
+  }
+  .info-card-summary-title {
+    font-size: 1.1rem;
+  }
+  .info-card-summary-description {
+    font-size: 0.85rem;
+  }
+  .gallery-item-custom {
+    width: calc(100% - 1rem); /* Una columna para la galería también */
+    max-width: none; /* Quitar el max-width para que ocupe el ancho */
+    height: 150px; /* Ajustar altura */
+  }
+  .info-modal-content {
+    padding: 1rem; /* Menos padding en el modal */
+    width: 95%;
+  }
+  .info-modal-title {
+    font-size: 1.3rem;
+  }
+}

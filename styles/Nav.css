@@ -1,0 +1,144 @@
+/* Estilos base de Nav.css que tenías, ajustados o nuevos */
+
+.nav-main-container {
+  width: 100%;
+  background-color: #065f46; /* Un verde oscuro, ajusta a tu paleta */
+  padding: 1rem 1.5rem; /* Padding horizontal y vertical */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Para que quede fija arriba */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.nav-content-wrapper {
+  max-width: 1200px; /* Un ancho máximo para el contenido */
+  margin: 0 auto; /* Centrar el contenido */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Espacio entre logo y enlaces/botón */
+}
+
+.nav-logo {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.75rem; /* Tamaño del logo */
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* O la fuente que prefieras */
+}
+
+.nav-logo:hover {
+  color: #d9f99d; /* Un color de acento al pasar el cursor */
+}
+
+/* Enlaces para Desktop */
+.nav-desktop-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none; /* Oculto por defecto, se mostrará en pantallas grandes */
+}
+
+.nav-desktop-links li {
+  display: inline-block;
+  margin-left: 25px; /* Espacio entre enlaces */
+}
+
+.nav-desktop-links li a {
+  text-decoration: none;
+  color: #e5e7eb; /* Un gris claro para los enlaces */
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 0.25rem;
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-desktop-links li a:hover {
+  color: #fff; /* Blanco al pasar el cursor */
+  border-bottom-color: #86efac; /* Un verde claro para el subrayado */
+}
+
+/* Botón Hamburguesa */
+.nav-mobile-menu-button {
+  display: block; /* Se muestra en móvil */
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.8rem; /* Tamaño del ícono */
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.sr-only { /* Para texto accesible pero visualmente oculto */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+
+/* Menú Desplegable para Móvil */
+.nav-mobile-links {
+  list-style: none;
+  margin: 0;
+  padding: 1rem 0; /* Padding vertical */
+  background-color: #054e3a; /* Un tono ligeramente diferente para el desplegable */
+  position: absolute;
+  top: 100%; /* Justo debajo de la barra de navegación */
+  left: 0;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  
+  /* Lógica de mostrar/ocultar */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Animación suave */
+}
+
+.nav-mobile-links.open {
+  max-height: 500px; /* Suficiente para mostrar todos los enlaces */
+  padding: 1rem 0;
+}
+
+.nav-mobile-links li {
+  text-align: center;
+}
+
+.nav-mobile-links li a {
+  display: block;
+  text-decoration: none;
+  color: #e5e7eb;
+  font-size: 1.1rem;
+  padding: 0.8rem 1.5rem; /* Buen padding para tocar en móvil */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-mobile-links li a:hover {
+  background-color: #047857; /* Verde más oscuro al pasar el cursor */
+  color: #fff;
+}
+
+
+/* Media Query para mostrar enlaces de desktop y ocultar botón hamburguesa en pantallas grandes */
+@media (min-width: 768px) { /* 768px es un punto de quiebre común (md en Tailwind) */
+  .nav-desktop-links {
+    display: flex; /* Mostrar enlaces de desktop */
+    align-items: center;
+  }
+  .nav-mobile-menu-button {
+    display: none; /* Ocultar botón hamburguesa */
+  }
+  .nav-mobile-links {
+    display: none; /* Ocultar menú móvil en desktop */
+  }
+}
+
+/* Elimina la clase .login-button y sus estilos si ya no se usan */
+

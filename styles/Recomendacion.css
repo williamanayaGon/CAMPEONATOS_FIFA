@@ -1,0 +1,201 @@
+/* src/styles/Recomendacion.css */
+
+.cultivo-page-wrapper { /* Nuevo wrapper para manejar el padding de la Nav */
+  padding-top: 70px; /* Ajusta este valor a la altura de tu Nav fija + un pequeño margen si es necesario */
+  background: linear-gradient(to right, #e0f2f1, #b2dfdb); /* Un gradiente suave verde agua */
+  min-height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+  box-sizing: border-box;
+}
+
+.cultivo-container {
+  display: flex;
+  align-items: center; /* Centra la caja verticalmente si hay espacio extra */
+  justify-content: center;
+  padding: 1.5rem; /* Padding para móviles */
+  width: 100%;
+  box-sizing: border-box;
+  min-height: calc(100vh - 70px); /* Altura mínima menos el padding del wrapper */
+}
+
+.cultivo-box {
+  background-color: #ffffff;
+  padding: 1.5rem; /* Padding interno para móviles */
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada y suave */
+  width: 100%;
+  max-width: 600px; /* Mantenemos el max-width */
+  margin: 1rem 0; /* Margen vertical en móviles si el contenido es muy alto */
+}
+
+.cultivo-title {
+  font-size: 1.6rem; /* Tamaño para móviles */
+  text-align: center;
+  color: #00695c; /* Un verde azulado oscuro */
+  margin-bottom: 1.5rem;
+  font-weight: 600; /* Semi-bold */
+}
+
+.cultivo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* Espacio entre grupos de formulario */
+}
+
+.cultivo-group {
+  /* Sin estilos específicos aquí, se aplican a label y select directamente */
+}
+
+.cultivo-group label {
+  font-weight: 500; /* Medium */
+  color: #004d40; /* Verde más oscuro para labels */
+  margin-bottom: 0.5rem;
+  display: block;
+  font-size: 1rem; /* Tamaño base para labels */
+}
+
+.cultivo-group select {
+  width: 100%;
+  padding: 0.8rem; /* Buen padding para interacción */
+  border: 1px solid #a7ffeb; /* Borde verde agua claro */
+  border-radius: 6px;
+  box-sizing: border-box;
+  background-color: #f8f9fa; /* Fondo muy claro para el select */
+  font-size: 0.95rem;
+  color: #333;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  appearance: none; /* Quitar estilo por defecto del navegador */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2300796b%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 0.7rem top 50%;
+  background-size: 0.65rem auto;
+  cursor: pointer;
+}
+
+.cultivo-group select:focus {
+  outline: none;
+  border-color: #00796b; /* Verde oscuro para el borde en foco */
+  box-shadow: 0 0 0 3px rgba(0, 121, 107, 0.2); /* Sombra de foco */
+}
+
+.cultivo-help {
+  font-size: 0.8rem;
+  color: #555;
+  margin-top: 0.4rem;
+}
+
+.cultivo-img {
+  margin-top: 0.5rem;
+  width: 100%;
+  max-height: 180px; /* Un poco más de altura para la imagen si es relevante */
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ddd; /* Borde sutil */
+}
+
+.cultivo-btn {
+  background-color: #00796b; /* Verde oscuro principal */
+  color: white;
+  padding: 0.85rem; /* Padding ajustado */
+  border: none;
+  border-radius: 6px;
+  font-weight: 600; /* Semi-bold */
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  font-size: 1.05rem; /* Tamaño de fuente del botón */
+  margin-top: 1rem;
+  width: 100%; /* Botón de ancho completo */
+}
+
+.cultivo-btn:hover {
+  background-color: #00695c; /* Un poco más oscuro al pasar */
+  transform: translateY(-1px);
+}
+.cultivo-btn:active {
+  transform: translateY(0px);
+}
+
+/* Estilos para la sección de resultados (basado en .cultivo-result-mejorado) */
+.cultivo-result-mejorado {
+  margin-top: 2rem;
+  background: #e8f5e9; /* Verde muy pálido para resultados */
+  border-left: 5px solid #4caf50; /* Verde más brillante para el borde */
+  padding: 1.25rem;
+  border-radius: 8px;
+  color: #2e7d32; /* Verde oscuro para texto de resultado */
+  box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+}
+
+.resultado-titulo {
+  font-size: 1.3rem;
+  color: #1b5e20; /* Verde más oscuro aún */
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.resultado-seccion {
+  margin-bottom: 1rem;
+}
+.resultado-seccion:last-child {
+  margin-bottom: 0;
+}
+
+.resultado-subtitulo {
+  display: block;
+  font-weight: 600; /* Semi-bold */
+  color: #388e3c; /* Verde medio */
+  margin-bottom: 0.4rem;
+  font-size: 1.05rem;
+}
+
+.resultado-lista-cultivos {
+  list-style: none; /* Quitar viñetas por defecto */
+  padding-left: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.resultado-lista-cultivos li {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+.resultado-lista-cultivos li::before {
+  content: '🥕'; /* Ejemplo de emoji, puedes usar FontAwesome o SVGs */
+  position: absolute;
+  left: 0;
+  top: 0; /* Ajusta si es necesario */
+  color: #4caf50; /* Color del "ícono" */
+}
+
+.resultado-consejos-texto {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #33691e; /* Verde oliva para los consejos */
+}
+
+/* --- Media Queries para Responsividad de Recomendacion.css --- */
+@media (min-width: 640px) { /* sm y más grandes */
+  .cultivo-container {
+    padding: 2rem; /* Mayor padding en pantallas más grandes */
+  }
+  .cultivo-box {
+    padding: 2rem;
+    margin: 2rem 0; /* Más margen vertical */
+  }
+  .cultivo-title {
+    font-size: 1.8rem; /* Tamaño original del título */
+  }
+  .cultivo-group label {
+    font-size: 1.1em;
+  }
+  .cultivo-btn {
+    padding: 0.9rem;
+    font-size: 1.1em;
+  }
+  .cultivo-result-mejorado {
+    padding: 1.5rem;
+  }
+  .resultado-titulo {
+    font-size: 1.4em;
+  }
+}

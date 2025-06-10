@@ -1,0 +1,190 @@
+.head{
+    height: 100vh;
+    width: 100%;
+    
+}
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.head h1{
+    color: #fff;
+    font-size: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.head-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.head-container h1{
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.head-container a{ 
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    font-size: 25px;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    padding: 14px 70px;
+    margin-top: 25px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+.head-container a:hover {
+    background-color: #fff;
+    color: #0c0333;
+}
+
+.fade-in {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.fade-in-up {
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+.fade-in-down {
+  animation: fadeInDown 1.5s ease-in-out;
+}
+
+
+
+/* Estilos existentes de App.css */
+/* Si tienes estilos globales en index.css, también se aplicarán */
+
+/* .head ahora es .home-hero-section */
+.home-hero-section {
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  width: 100%;
+  position: relative; /* Para posicionar elementos hijos absolutamente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden; /* Para que el video no se desborde si es más grande */
+}
+
+/* .video-bg ahora es .home-video-bg */
+.home-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cubre todo el espacio disponible */
+  z-index: 1; /* Detrás del contenido */
+}
+
+.home-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Superposición oscura semitransparente */
+  z-index: 2; /* Entre el video y el texto */
+}
+
+/* .head-container ahora es .home-hero-content */
+.home-hero-content {
+  position: relative; /* Para que esté sobre el overlay */
+  z-index: 3;
+  padding: 20px;
+  /* Animaciones (si las tenías en .head-container) */
+  /* animation: fadeInUp 1.5s ease-in-out; */
+}
+
+/* .head h1 o .head-container h1 ahora es .home-hero-title */
+.home-hero-title {
+  color: #fff;
+  font-size: 2.2rem; /* Tamaño base para móviles */
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* .head-container a ahora es .home-hero-button */
+.home-hero-button { 
+  text-decoration: none;
+  display: inline-block;
+  color: #065f46; /* Texto oscuro para contraste con fondo claro */
+  background-color: #f0c674; /* Color de acento (amarillo/dorado) */
+  font-size: 1rem; /* Tamaño base para móviles */
+  padding: 12px 30px;  /* Tamaño del texto del botón */
+  font-weight: bold;
+  border: 2px solid transparent; /* Borde opcional */
+  border-radius: 50px; /* Botón redondeado */
+  padding: 14px 40px; /* Padding interno */
+  margin-top: 20px; /* Espacio sobre el botón */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.home-hero-button:hover {
+  background-color: #eab308; /* Amarillo más oscuro */
+  color: #054e3a; /* Verde más oscuro para el texto */
+  transform: scale(1.05); /* Efecto de zoom ligero */
+}
+
+/* Nueva sección para el componente Informacion */
+.home-informacion-section {
+  padding: 3rem 1rem; /* Espaciado vertical y horizontal */
+  background-color: #f9fafb; /* Un fondo gris muy claro o blanco */
+}
+
+/* Tus animaciones si las usas (puedes mantenerlas como estaban) */
+.fade-in { animation: fadeIn 1.5s ease-in-out; } /* */
+.fade-in-up { animation: fadeInUp 1.5s ease-in-out; } /* */
+.fade-in-down { animation: fadeInDown 1.5s ease-in-out; } /* */
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (min-width: 640px) { /* sm */
+  .home-hero-title {
+    font-size: 2.8rem; /* Ligeramente más grande para sm */
+  }
+  .home-hero-button {
+    font-size: 1.1rem;
+    padding: 14px 35px;
+  }
+}
+
+@media (min-width: 768px) { /* md */
+  .home-hero-title {
+    font-size: 3.5rem; /* Tu tamaño original era 50px (aprox 3.125rem o 3.5rem) */
+  }
+  .home-hero-button {
+    font-size: 1.25rem; /* Tu tamaño original */
+    padding: 14px 40px; /* Tu padding original */
+  }
+}
+
+.home-informacion-section {
+  padding: 2rem 1rem; /* Padding base para móviles */
+  background-color: #f9fafb;
+}
+@media (min-width: 768px) {
+  .home-informacion-section {
+    padding: 3rem 1.5rem; /* Padding para pantallas más grandes */
+  }
+}
